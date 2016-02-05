@@ -10,12 +10,11 @@ class Librdkafka < Formula
   sha256     "e7d0d5bbaed8c6b163bdcc74274b7c1608b4d8a06522c4fed1856986aee0a71a"
 
   depends_on "lzlib"
-  depends_on "openssl"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--CPPFLAGS=-I/usr/loc/opt/openssl/include",
+                          "--CPPFLAGS=-I/usr/local/opt/openssl/include",
                           "--LDFLAGS=-L/usr/local/opt/openssl/lib"
     system "make"
     system "make", "install"
